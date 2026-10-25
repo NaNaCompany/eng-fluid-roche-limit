@@ -1,0 +1,62 @@
+{
+  "id": "E105",
+  "value": 18365281.763394687,
+  "method": "Independent Python Decimal, precision 80 decimal digits; direct analytic SI equation with binary64 inputs decoded exactly, no JavaScript model imports.",
+  "value_80_digits": "18365281.763394688075092728991471074889370949769818874789472375330316838125199114",
+  "cases": [
+    {
+      "name": "Equal densities give 2.44 primary radii",
+      "values": {
+        "radius": 1000,
+        "primarydensity": 1000,
+        "satellitedensity": 1000
+      },
+      "expected": 2440.0
+    },
+    {
+      "name": "Density ratio eight doubles limit",
+      "values": {
+        "radius": 1000,
+        "primarydensity": 8000,
+        "satellitedensity": 1000
+      },
+      "expected": 4880.0
+    },
+    {
+      "name": "Dense satellite limit inside primary",
+      "values": {
+        "radius": 1000,
+        "primarydensity": 1000,
+        "satellitedensity": 1000000.0
+      },
+      "kind": "no-result"
+    },
+    {
+      "name": "Large equal densities with weak compactness remain bounded",
+      "values": {
+        "radius": 1e-145,
+        "primarydensity": 1e+300,
+        "satellitedensity": 1e+300
+      },
+      "expected": 2.44e-145
+    },
+    {
+      "name": "Small equal densities with weak compactness remain bounded",
+      "values": {
+        "radius": 1e+145,
+        "primarydensity": 1e-300,
+        "satellitedensity": 1e-300
+      },
+      "expected": 2.44e+145
+    },
+    {
+      "name": "Relativistic primary rejected",
+      "values": {
+        "radius": 1000,
+        "primarydensity": 1e+300,
+        "satellitedensity": 1e+300
+      },
+      "throws": true
+    }
+  ]
+}
